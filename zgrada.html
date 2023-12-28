@@ -19,6 +19,8 @@
     .image-container {
       width: 60%;
       position: relative;
+      overflow: hidden; /* Hide the overflowing content */
+      border-top: 20px solid transparent; /* Add a 20-pixel transparent border */
     }
 
     .white-band {
@@ -28,6 +30,15 @@
       top: 0;
       left: 0;
       width: 100%;
+    }
+
+    .image-container img {
+      width: 100%; /* Make the images take up 100% of the container width */
+      height: auto;
+      display: block;
+      position: absolute;
+      opacity: 0; /* Initially hide the images */
+      transition: opacity 0s; /* Instant transition */
     }
 
     .text-container {
@@ -48,15 +59,18 @@
       margin-bottom: 10px;
     }
   </style>
-  <title>Centered Text in 40%</title>
+  <title>Kordunaska 14</title>
 </head>
 <body>
 
 <div class="container">
-  <div class="image-container">
-    <div class="white-band"></div>
-    <img src="slike_za_stranicu/slika1.jpeg">
-    <img src="slike_za_stranicu/slika4.jpg">
+  <div class="image-container" id="imageContainer">
+    <!-- Your images go here -->
+    <img src="slika1.jpeg">
+    <img src="slika2.png">
+    <img src="slika3.png">
+    <img src="slika4.jpg">
+    <!-- Add more images as needed -->
   </div>
 
   <div class="text-container">
@@ -72,11 +86,27 @@
     <p>Stan broj 2733434 vrsi trenutno renoviranje kupatila povodom toga se mole stanari za razumijevanje.</p>
     <ul>
       <li>Planiragfhgvhjgni zavrsfgbcbcvhcvbnetak rasdsdsdda 15.1.2024.</li>
-        <li>Ciscenje ulaza</li>
-      <li>promjena pumpe za vodu</li>
+      <li>Ciscenje ulaza</li>
+      <li>promjena pumpe za vodu555</li>
     </ul>
   </div>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const imageContainer = document.getElementById("imageContainer");
+    const images = imageContainer.querySelectorAll("img");
+
+    let currentIndex = 0;
+    const duration = 5; // seconds
+
+    setInterval(() => {
+      images[currentIndex].style.opacity = 0;
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].style.opacity = 1;
+    }, duration * 1000);
+  });
+</script>
 
 </body>
 </html>
