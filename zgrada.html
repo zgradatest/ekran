@@ -108,5 +108,18 @@
   });
 </script>
 
+<script>
+  // Auto-refresh every hour
+  setInterval(function () {
+    location.reload();
+  }, 3600000); // 3600000 milliseconds = 1 hour
+
+  // Enter full-screen mode on page load
+  document.addEventListener("DOMContentLoaded", function () {
+    document.documentElement.requestFullscreen();
+  });
+</script>
+
+  
 </body>
 </html>
