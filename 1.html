@@ -3,44 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kordunaška 14</title>
+  <title>Kordunaška 14 Test2</title>
   <style>
     body {
       margin: 0;
       overflow: hidden;
     }
 
-    img {
+    .container {
       width: 100vw;
       height: 100vh;
+      overflow: hidden;
+    }
+
+    .image-container {
+      display: flex;
+      transition: transform 1s ease-in-out;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
     }
   </style>
 </head>
 <body>
 
-<script>
-  const images = [
-    'slike_za_stranicu/slika1.jpeg',
-    'slike_za_stranicu/slika2.jpg',
-    'slike_za_stranicu/slika3.jpg',
-    'slike_za_stranicu/slika4.jpg',
-    // Add more image URLs as needed
+<div class="container">
+  <div class="image-container" id="imageContainer">
+    <!-- Your images go here -->
+    <img src="slike_za_stranicu/slika1.jpeg">
+    <img src="slike_za_stranicu/slika2.jpg">
+    <img src="slike_za_stranicu/slika3.jpg">
+    <img src="slike_za_stranicu/slika4.jpg">
+    <!-- Add more images as needed -->
+  </div>
+</div>
 
-  ];
+<script>
+  const imageContainer = document.getElementById('imageContainer');
+  const images = document.querySelectorAll('.image-container img');
 
   let currentImageIndex = 0;
-  const imageElement = document.createElement('img');
-  document.body.appendChild(imageElement);
 
   function changeImage() {
-    imageElement.src = images[currentImageIndex];
     currentImageIndex = (currentImageIndex + 1) % images.length;
+    const translateValue = -currentImageIndex * 100;
+    imageContainer.style.transform = `translateX(${translateValue}%)`;
     setTimeout(changeImage, 7000);
   }
 
