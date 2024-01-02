@@ -59,7 +59,7 @@
       margin-bottom: 10px;
     }
   </style>
-  <title>Kordunaska 14T3</title>
+  <title>Kordunaska 14T4</title>
 </head>
 <body>
 
@@ -106,35 +106,14 @@
       images[currentIndex].style.opacity = 1;
     }, duration * 1000);
   });
-</script>
-
-<script>
-  // Function to enter full-screen mode
-  function enterFullscreen() {
-    const element = document.documentElement;
-
-    if (element.requestFullscreen) {
-      element.requestFullscreen();
-    } else if (element.mozRequestFullScreen) {
-      element.mozRequestFullScreen();
-    } else if (element.webkitRequestFullscreen) {
-      element.webkitRequestFullscreen();
-    } else if (element.msRequestFullscreen) {
-      element.msRequestFullscreen();
-    }
-  }
-
-  // Enter full-screen mode on page load
-  document.addEventListener("DOMContentLoaded", enterFullscreen);
 
   // Auto-refresh every hour and enter full-screen mode after refresh
   setInterval(function () {
     enterFullscreen();
     location.reload();
   }, 10000); // 3600000 milliseconds = 1 hour
+
 </script>
-
-
 
   
 </body>
