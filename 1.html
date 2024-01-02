@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kordunaška 14 Test3</title>
+  <title>Kordunaška 14 test4</title>
   <style>
     body {
       margin: 0;
@@ -11,7 +11,7 @@
     }
 
     .container {
-      width: 100vw;
+      width: 400%; /* Set width to accommodate all images side by side */
       height: 100vh;
       overflow: hidden;
       position: relative;
@@ -24,7 +24,7 @@
     }
 
     img {
-      width: 100%;
+      width: 25%; /* Each image takes up 25% of the container width */
       height: 100%;
       object-fit: cover;
     }
@@ -52,7 +52,7 @@
   function changeImage() {
     currentImageIndex = (currentImageIndex + 1) % images.length;
     const translateValue = -currentImageIndex * 100;
-    imageContainer.style.transform = `translateY(${translateValue}%)`;
+    imageContainer.style.transform = `translateX(${translateValue}%)`;
     setTimeout(changeImage, 7000);
   }
 
@@ -61,3 +61,4 @@
 
 </body>
 </html>
+
