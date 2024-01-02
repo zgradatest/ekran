@@ -59,7 +59,7 @@
       margin-bottom: 10px;
     }
   </style>
-  <title>Kordunaska 14</title>
+  <title>Kordunaska 14T1</title>
 </head>
 <body>
 
@@ -109,16 +109,18 @@
 </script>
 
 <script>
-  // Auto-refresh every hour
-  setInterval(function () {
-    location.reload();
-  }, 3600000); // 3600000 milliseconds = 1 hour
-
-  // Enter full-screen mode on page load
+  // Enter full-screen mode
   document.addEventListener("DOMContentLoaded", function () {
     document.documentElement.requestFullscreen();
   });
+
+  // Auto-refresh every hour and enter full-screen mode after refresh
+  setInterval(function () {
+    document.documentElement.requestFullscreen();
+    location.reload();
+  }, 1); // 3600000 milliseconds = 1 hour
 </script>
+
 
   
 </body>
