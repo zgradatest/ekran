@@ -1,60 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Slideshow</title>
-    <style>
-        #slideshow-container {
-            max-width: 500px;
-            position: relative;
-            margin: auto;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slideshow</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
 
-        .mySlides {
-            display: none;
-            width: 100%;
-            height: auto;
-        }
-    </style>
+    img {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+  </style>
 </head>
 <body>
 
-<div id="slideshow-container">
-    <div class="mySlides">
-        <img src="slike_za_stranicu/slika1.jpeg">
-    </div>
-
-    <div class="mySlides">
-        <img src="slike_za_stranicu/slika2.jpg">
-    </div>
-
-    <div class="mySlides">
-        <img src="slike_za_stranicu/slika3.jpg">
-        
-    </div>
-            <img src="slike_za_stranicu/slika4.jpg">
-    <!-- Add more mySlides divs with your images -->
-</div>
-
 <script>
-    var slideIndex = 0;
-    showSlides();
+  const images = [
+    'slike_za_stranicu/slika1.jpeg',
+    'slike_za_stranicu/slika2.jpg',
+    'slike_za_stranicu/slika3.jpg',
+    'slike_za_stranicu/slika4.jpg',
+    // Add more image URLs as needed
 
-    function showSlides() {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {
-            slideIndex = 1;
-        }
-        slides[slideIndex - 1].style.display = "block";
-        setTimeout(showSlides, 7000); // Change slide every 7 seconds
-    }
+  ];
+
+  let currentImageIndex = 0;
+  const imageElement = document.createElement('img');
+  document.body.appendChild(imageElement);
+
+  function changeImage() {
+    imageElement.src = images[currentImageIndex];
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    setTimeout(changeImage, 7000);
+  }
+
+  changeImage();
 </script>
 
 </body>
 </html>
+
