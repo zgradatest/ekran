@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kordunaška 14 Test2</title>
+  <title>Kordunaška 14 Test3</title>
   <style>
     body {
       margin: 0;
@@ -14,11 +14,13 @@
       width: 100vw;
       height: 100vh;
       overflow: hidden;
+      position: relative;
     }
 
     .image-container {
       display: flex;
       transition: transform 1s ease-in-out;
+      height: 100%;
     }
 
     img {
@@ -50,7 +52,7 @@
   function changeImage() {
     currentImageIndex = (currentImageIndex + 1) % images.length;
     const translateValue = -currentImageIndex * 100;
-    imageContainer.style.transform = `translateX(${translateValue}%)`;
+    imageContainer.style.transform = `translateY(${translateValue}%)`;
     setTimeout(changeImage, 7000);
   }
 
@@ -59,4 +61,3 @@
 
 </body>
 </html>
-
